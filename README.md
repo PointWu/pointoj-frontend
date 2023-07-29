@@ -1,24 +1,25 @@
 # pointoj-frontend
 
-## Project setup
+
+## 🔫 前端技术选型
+
 ```
-yarn install
+- VUE3 + TS 
+- UI组件：Arco
 ```
 
-### Compiles and hot-reloads for development
+
+
+## ✅ 已实现
+
 ```
-yarn serve
+- 前端基本布局
+- 动态路由
+- 全局状态管理 vuex
+- 权限管理
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## 💊 说明
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 个人学习
