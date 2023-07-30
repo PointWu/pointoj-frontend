@@ -1,5 +1,5 @@
 <template>
-  <a-row id="globalHeader" style="margin-bottom: 16px" align="center">
+  <a-row id="globalHeader" align="center" :wrap="false">
     <a-col flex="auto">
       <a-menu
         mode="horizontal"
@@ -16,7 +16,7 @@
             <div class="title">point OJ</div>
           </div>
         </a-menu-item>
-        <a-menu-item v-for="item in routes" :key="item.path">{{
+        <a-menu-item v-for="item in visibleRoutes" :key="item.path">{{
           item.name
         }}</a-menu-item>
       </a-menu>
@@ -30,10 +30,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { routes } from "../router/routes";
+import checkAccess from "@/access/checkAccess";
+import ACCESS_ENUM from "@/access/accessEnum";
 
 const router = useRouter();
 const selectedKeys = ref(["/"]);
@@ -44,11 +46,28 @@ router.afterEach((to, from, failure) => {
 });
 const store = useStore();
 
+// NOTE 过滤掉隐藏路由,使用计算属性，保证用户信息发生变更的时候，触发菜单渲染。
+const visibleRoutes = computed(() => {
+  return routes.filter((item, index) => {
+    if (item.meta?.hideInMenu) {
+      return false;
+    }
+    // 根据权限过滤
+    if (
+      !checkAccess(store.state.user.loginUser, item?.meta?.access as string)
+    ) {
+      return false;
+    }
+
+    return true;
+  });
+});
+
 // 测试权限 3s后切为管理员
 // setTimeout(() => {
 //   store.dispatch("user/getLoginUser", {
-//     userName: "ddd",
-//     role: "admin",
+//     userName: "point管理员",
+//     userRole: ACCESS_ENUM.ADMIN,
 //   });
 // }, 3000);
 
