@@ -64,12 +64,12 @@ const visibleRoutes = computed(() => {
 });
 
 // 测试权限 3s后切为管理员
-setTimeout(() => {
-  store.dispatch("user/getLoginUser", {
-    userName: "point管理员",
-    userRole: ACCESS_ENUM.ADMIN,
-  });
-}, 3000);
+// setTimeout(() => {
+//   store.dispatch("user/getLoginUser", {
+//     userName: "point管理员",
+//     userRole: ACCESS_ENUM.ADMIN,
+//   });
+// }, 3000);
 
 const doMenuClick = (key: string) => {
   router.push({
