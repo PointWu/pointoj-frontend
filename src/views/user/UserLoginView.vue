@@ -57,6 +57,7 @@ const handleSubmit = async () => {
       path: "/",
       replace: true,
     });
+    message.success("登录成功");
   } else {
     message.error("登录失败，" + res.message);
   }
