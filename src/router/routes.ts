@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import ExampleView from "../views/ExampleView.vue";
 import AdminView from "@/views/AdminView.vue";
 import NoAuthView from "@/views/error/NoAuthView.vue";
 import ACCESS_ENUM from "@/access/accessEnum";
@@ -31,7 +31,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "浏览题目",
-    component: HomeView,
+    component: ExampleView,
   },
   {
     path: "/about",
@@ -58,7 +58,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/hide",
     name: "隐藏页面",
-    component: HomeView,
+    component: ExampleView,
     meta: {
       hideInMenu: true,
     },

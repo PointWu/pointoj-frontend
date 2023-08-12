@@ -21,6 +21,9 @@ npm:9.5.1
 - 权限管理
 - 全局权限管理，根据权限生成菜单
 - 引入了 openapi-typescript-codegen
+
+- 富文本编辑器 👉 https://github.com/bytedance/bytemd
+
 ```
 
 
