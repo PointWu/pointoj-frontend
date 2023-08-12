@@ -33,7 +33,7 @@ const plugins = [
  */
 const props = withDefaults(defineProps<Props>(), {
   value: () => "",
-  mode: () => "split",
+  mode: () => "split", // 默认分成两栏
   handleChange: (v: string) => {
     console.log(v);
   },

@@ -20,9 +20,9 @@ export type OpenAPIConfig = {
 };
 
 export const OpenAPI: OpenAPIConfig = {
-    BASE: 'http://localhost:8121', // 这里改请求地址
+    BASE: 'http://localhost:8121',
     VERSION: '1.0',
-    WITH_CREDENTIALS: true, // 设置cookie请求头
+    WITH_CREDENTIALS: true,
     CREDENTIALS: 'include',
     TOKEN: undefined,
     USERNAME: undefined,
