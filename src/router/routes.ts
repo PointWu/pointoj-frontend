@@ -34,17 +34,18 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/add/question",
     name: "创建题目",
     component: AddQuestionView,
-    // meta: {
-    //   access: ACCESS_ENUM.ADMIN,
-    // },
+    meta: {
+      access: ACCESS_ENUM.USER,
+    },
   },
   {
     path: "/update/question",
     name: "更新题目",
     component: AddQuestionView,
-    // meta: {
-    //   access: ACCESS_ENUM.ADMIN,
-    // },
+    meta: {
+      access: ACCESS_ENUM.USER,
+      hideInMenu: true,
+    },
   },
   {
     path: "/manage/question/",
@@ -59,20 +60,20 @@ export const routes: Array<RouteRecordRaw> = [
     name: "浏览题目",
     component: ExampleView,
   },
-  {
-    path: "/about",
-    name: "关于我的",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
-  {
-    path: "/admin",
-    name: "管理员",
-    component: AdminView,
-    meta: {
-      access: ACCESS_ENUM.ADMIN,
-    },
-  },
+  // {
+  //   path: "/about",
+  //   name: "关于我的",
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  // },
+  // {
+  //   path: "/admin",
+  //   name: "管理员",
+  //   component: AdminView,
+  //   meta: {
+  //     access: ACCESS_ENUM.ADMIN,
+  //   },
+  // },
   {
     path: "/noauth",
     name: "无权限",
