@@ -9,6 +9,9 @@ import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import AddQuestionView from "@/views/question/AddQuestionView.vue";
 import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
 
+import QuestionsView from "@/views/question/QuestionsView.vue";
+import ViewQuestionView from "@/views/question/ViewQuestionView.vue";
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/user",
@@ -27,6 +30,21 @@ export const routes: Array<RouteRecordRaw> = [
       },
     ],
     meta: {
+      hideInMenu: true,
+    },
+  },
+  {
+    path: "/",
+    name: "浏览题目",
+    component: QuestionsView,
+  },
+  {
+    path: "/view/question/:id", // 动态路由
+    name: "在线做题",
+    component: ViewQuestionView,
+    props: true, // 获取动态参数
+    meta: {
+      access: ACCESS_ENUM.USER,
       hideInMenu: true,
     },
   },
@@ -55,11 +73,7 @@ export const routes: Array<RouteRecordRaw> = [
     //   access: ACCESS_ENUM.ADMIN,
     // },
   },
-  {
-    path: "/",
-    name: "浏览题目",
-    component: ExampleView,
-  },
+
   // {
   //   path: "/about",
   //   name: "关于我的",

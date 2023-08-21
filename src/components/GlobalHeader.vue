@@ -23,7 +23,14 @@
     </a-col>
     <a-col flex="100px">
       <div>
-        {{ store.state.user?.loginUser?.userName ?? "未登录" }}
+        <a-dropdown>
+          <a-button>{{
+            store.state.user?.loginUser?.userName ?? "未登录"
+          }}</a-button>
+          <template #content>
+            <a-doption>退出登录</a-doption>
+          </template>
+        </a-dropdown>
       </div>
     </a-col>
   </a-row>
