@@ -28,7 +28,7 @@
             store.state.user?.loginUser?.userName ?? "未登录"
           }}</a-button>
           <template #content>
-            <a-doption>退出登录</a-doption>
+            <a-doption @click="outLogin">退出登录</a-doption>
           </template>
         </a-dropdown>
       </div>
@@ -43,6 +43,7 @@ import { useStore } from "vuex";
 import { routes } from "../router/routes";
 import checkAccess from "@/access/checkAccess";
 import ACCESS_ENUM from "@/access/accessEnum";
+import { UserControllerService } from "../../generated";
 
 const router = useRouter();
 const selectedKeys = ref(["/"]);
@@ -69,6 +70,13 @@ const visibleRoutes = computed(() => {
     return true;
   });
 });
+
+// 退出登录
+
+const outLogin = () => {
+  UserControllerService.userLogoutUsingPost();
+  location.reload();
+};
 
 // 测试权限 3s后切为管理员
 // setTimeout(() => {
